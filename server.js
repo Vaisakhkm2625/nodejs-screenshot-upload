@@ -1,6 +1,9 @@
 const express = require('express');
 const multer = require('multer');
 
+
+
+// https://stackoverflow.com/a/65537142/15070114
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
     // cb(null, '/tmp/my-uploads')
@@ -10,7 +13,7 @@ var storage = multer.diskStorage({
     cb(null, file.fieldname + '-' + Date.now()+'.png')
   }
 })
- 
+
 var upload = multer({ storage: storage })
 
 // const upload = multer({dest: __dirname + '/uploads'});
