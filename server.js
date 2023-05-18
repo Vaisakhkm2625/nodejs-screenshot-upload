@@ -1,21 +1,22 @@
 const express = require('express');
 const multer = require('multer');
-const upload = multer({dest: __dirname + '/uploads/images'});
+
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    // cb(null, '/tmp/my-uploads')
+    cb(null, __dirname + '/uploads')
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.fieldname + '-' + Date.now()+'.png')
+  }
+})
+ 
+var upload = multer({ storage: storage })
+
+// const upload = multer({dest: __dirname + '/uploads'});
 
 const app = express();
 const PORT = 3000;
-
-var storage = multer.diskStorage(
-    {
-        destination: './uploads/images',
-        filename: function ( req, file, cb ) {
-            //req.body is empty...
-            //How could I get the new_file_name property sent from client here?
-            cb( null, file.originalname+ '-' + Date.now()+".png");
-        }
-    }
-);
-
 
 app.use(express.static('public'));
 
@@ -26,6 +27,7 @@ app.post('/upload', upload.single('photo'), (req, res) => {
     else throw 'error';
 });
 
-app.listen(PORT, () => {
+app.listen(PORT,'0.0.0.0', () => {
     console.log('Listening at ' + PORT );
 });
+
