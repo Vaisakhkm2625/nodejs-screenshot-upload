@@ -1,3 +1,10 @@
+# nodeJS-screenshot-upload
+
+Simple app to paste and upload screenshot to a server
+
+
+> comments from orginal author 
+
 # nodeJS-image-upload
 
 Simple NodeJS Express Program get files as input from user and upload it to the server. 
