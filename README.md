@@ -3,9 +3,19 @@
 Simple app to paste and upload screenshot to a server
 
 
-> comments from orginal author 
+To install necessary packages and start the server: 
+    
+    npm install && npm start
 
-# nodeJS-image-upload
+Then go to [http://localhost:3000](http://localhost:3000). 
+
+after taking a screenshot or coping a png image, focus on page and press <kbd>ctrl</kbd>+<kbd>v</kbd>.
+image will be uploaded to `/upload` directory  
+
+
+## nodeJS-image-upload
+
+> comments from orginal author 
 
 Simple NodeJS Express Program get files as input from user and upload it to the server. 
 
