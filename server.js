@@ -19,7 +19,7 @@ var upload = multer({ storage: storage })
 // const upload = multer({dest: __dirname + '/uploads'});
 
 const app = express();
-const PORT = 3000;
+const PORT = 8080;
 
 app.use(express.static('public'));
 
